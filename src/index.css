@@ -1,13 +1,226 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html,body{
+  margin:0;
+  padding:0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #fff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  user-select:none;
+}
+#video{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+}
+
+#backgroundMask{
+  position: fixed;
+  z-index:-99;
+  width:100%;
+  height:100vh;
+  background:rgba(0,0,0,.8);
+}
+
+main{
+  width:100%;
+}
+
+main#top{
+  height:100vh;
+  display: flex;
+  font-weight: 500;
+  justify-content:center;
+  align-items: center;
+  flex-direction: column;
+  color:#fff;
+}
+
+main #topTitle{
+  font-size: 8vw;
+  cursor: default;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  user-select:none;
+  margin:15px 0;
+  opacity: 0;
+  animation:topTitle 1s forwards;
+}
+
+.buttons{
+  width: 80%;
+  margin: 5px auto;
+  display: flex;
+  justify-content: space-around;
+  color:#666;
+}
+
+.buttons .button{
+  position: relative;
+  font-size:1.5rem;
+  transition: .2s;
+  cursor: pointer;
+  animation:topButtonsAnimation 1s forwards,topTitle 1s forwards;
+}
+
+main:not(#top) .buttons .button{
+  font-size:1rem !important;
+}
+
+.buttons .button:not(.isTransition), .textArea:not(.isTransition){
+  opacity: 0;
+  bottom:-15px;
+}
+
+.buttons .button:nth-child(1){
+  animation-delay: 0s;
+}
+
+.buttons .button:nth-child(2){
+  animation-delay: .2s;
+}
+
+.buttons .button:nth-child(3){
+  animation-delay: .4s;
+}
+
+.buttons .button::after {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 1px;
+  background: #fff;
+  transform: scale(0, 1);
+  transform-origin: right top;
+  transition: transform .3s;
+}
+
+.buttons .button:hover{
+  color:#fff;
+}
+
+.buttons .button:hover::after {
+  transform-origin: left top;
+  transform: scale(1, 1);
+}
+
+.isTransition{
+  opacity: 1;
+  bottom: 0;
+  animation:topFadeUpOut 1s forwards !important;
+}
+
+.buttons .button.isTransition:nth-child(1){
+  animation-delay: .2s !important;
+}
+
+.buttons .button.isTransition:nth-child(2){
+  animation-delay: .4s !important;
+}
+
+.buttons .button.isTransition:nth-child(3){
+  animation-delay: .6s !important;
+}
+
+@keyframes topTitle {
+  0%{
+    opacity: 0
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@keyframes topButtonsAnimation {
+  0%{
+    bottom: -15px;
+  }
+  100%{
+    bottom: 0;
+  }
+}
+
+@keyframes topFadeUpOut {
+  0%{
+    opacity: 1;
+    bottom: 0;
+  }
+  100%{
+    opacity: 0;
+    bottom: 15px;
+  }
+}
+
+@keyframes topTitleAnimation {
+  0%{
+    bottom:-15px;
+    opacity:0;
+  }
+  100%{
+    bottom:0px;
+    opacity: 1;
+  }
+}
+
+main h2{
+  cursor: default;
+}
+
+@media screen and (max-width:768px){
+  main #title{
+    font-size:10vw;
+  }
+  main #title::after{
+    height:4px;
+    bottom:-10px;
+  }
+}
+
+/* other pages */
+
+#profile{
+
+}
+
+#profile h1{
+  margin:30px auto;
+  animation:topTitle 1s forwards;
+}
+
+.textArea{
+  width:80%;
+  position: relative;
+  margin:15px auto;
+  text-align: left;
+  animation:topTitle 1s forwards,topTitleAnimation 1s forwards;
+  animation-delay: .6s;
+}
+
+.textArea.isTransition{
+  animation-delay: .8s !important;
+}
+
+ul{
+  list-style:none;
+  padding-left:0;
+}
+
+a{
+  color:#fff;
+}
+
+@media screen and (max-width:768px){
+  main .buttons .button{
+    font-size:1rem !important;
+  }
 }

@@ -1,24 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter, Route} from "react-router-dom";
+import Index from "./pages/index";
+import Profile from "./pages/profile";
+import Services from "./pages/services";
+import Contact from "./pages/contact";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div id="backgroundMask">
+        <BrowserRouter>
+          <Route path="/" exact component={Index}/>
+          <Route path="/profile" exact component={Profile}/>
+          <Route path="/services" exact component={Services}/>
+          <Route path="/contact" exact component={Contact}/>
+        </BrowserRouter>
+      </div>
+      <video autoPlay muted loop id="video">
+        <source src="movie.mp4" type="video/mp4"/>
+      </video>
     </div>
   );
 }
