@@ -61,7 +61,7 @@ class Profile extends React.Component<RouteComponentProps ,{
             <a href="https://mst.poyashi.me">Mastodon Downloader</a>
           </p>
           <p>
-            <a href="#">Sikolog</a>
+            <a href="https://wank.work">Sikolog</a>
           </p>
           <p>
             <a href="https://mc.poyashi.me">Minecraft Private Server</a>
