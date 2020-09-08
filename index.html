@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>poyashi.me</title>
+</head>
+<body>
+<div class="line left top tx"></div>
+<div class="line right bottom tx"></div>
+<div id="box">
+ <p id="text" class="tx">poyashi.me</p>
+</div>
+<style>
+html,body{margin:0;padding:0;width:100%;height:100%;background:#000;color:#fff;font-family:Yu Gothic;overflow:hidden;}
+.tx{animation-timing-function:cubic-bezier(0,1,.65,1) !important;}
+#box{height:100%;width:100%;display:flex;justify-content:center;align-items:center;}
+#text{font-weight:800;font-size:10vw;animation: 2s z forwards}
+.line{width:80%;border-top:1px solid #fff;position:absolute;}
+.left{left:0;animation: 1s x forwards,1s z forwards;}
+.right{right:0;animation: 1s y forwards,1s z forwards;}
+.top{top:20%;}
+.bottom{bottom:20%;}
+@keyframes x{0%{left:-100%;}100%{left:0;}}
+@keyframes y{0%{right:-100%;}100%{right:0;}}
+@keyframes z{0%{opacity:0;}100%{opacity:1;}}
+</style>
+</body>
+</html>
