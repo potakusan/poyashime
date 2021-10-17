@@ -8,6 +8,7 @@
  <div class="line right bottom tx"></div>
  <div id="box">
   <p id="text" class="tx">poyashi.me</p>
+  <p id="notice">for any inquiries please contact : poyashime@protonmail.com</p>
  </div>
 </div>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,8 +26,9 @@ html,body{margin:0;padding:0;color:#fff;}
 html{width:100% !important;height:100% !important;}
 #wrapper{overflow:hidden !important;position:relative !important;}
 .tx{animation-timing-function:cubic-bezier(0,1,.65,1) !important;}
-#box{height:100%;width:100%;display:flex;justify-content:center;align-items:center;}
-#text{font-weight:800;font-size:10vw;animation: 2s z forwards}
+#box{height:100%;width:100%;display:flex;justify-content:center;align-items:center; flex-direction:column;}
+#text{font-weight:800;font-size:4vw;animation: 2s z forwards}
+#notice{font-size:18px;}
 .line{width:80%;border-top:1px solid #fff;position:absolute;}
 .left{left:0;animation: 1s x forwards,1s z forwards;}
 .right{right:0;animation: 1s y forwards,1s z forwards;}
@@ -35,6 +37,10 @@ html{width:100% !important;height:100% !important;}
 @keyframes x{0%{left:-100%;}100%{left:0;}}
 @keyframes y{0%{right:-100%;}100%{right:0;}}
 @keyframes z{0%{opacity:0;}100%{opacity:1;}}
+@media screen and (max-width:600px){
+ #text{font-size:30px !important; text-align:center;}
+ #notice{font-size:15px !important}
+}
 </style>
 </body>
 </html>
